@@ -1,20 +1,20 @@
 <?php
 /**
- * BugSnatcher plugin for Craft CMS 3.x
+ * CraftBugSnatcher plugin for Craft CMS 3.x
  *
- * A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.
+ * This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
  *
  * @link      https://kaiserrobin.eu
  * @copyright Copyright (c) 2018 Robin Kaiser
  */
 
 /**
- * BugSnatcher config.php
+ * CraftBugSnatcher config.php
  *
- * This file exists only as a template for the BugSnatcher settings.
+ * This file exists only as a template for the CraftBugSnatcher settings.
  * It does nothing on its own.
  *
- * Don't edit this file, instead copy it to 'craft/config' as 'bug-snatcher.php'
+ * Don't edit this file, instead copy it to 'craft/config' as 'craft-bug-snatcher.php'
  * and make your changes there to override default settings.
  *
  * Once copied to 'craft/config', this file will be multi-environment aware as

@@ -1,22 +1,22 @@
 <?php
 /**
- * BugSnatcher plugin for Craft CMS 3.x
+ * CraftBugSnatcher plugin for Craft CMS 3.x
  *
- * A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.
+ * This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
  *
  * @link      https://kaiserrobin.eu
  * @copyright Copyright (c) 2018 Robin Kaiser
  */
 
-namespace kaiserwerk\bugsnatcher\records;
+namespace kaiserwerk\craftbugsnatcher\records;
 
-use kaiserwerk\bugsnatcher\BugSnatcher;
+use kaiserwerk\craftbugsnatcher\CraftBugSnatcher;
 
 use Craft;
 use craft\db\ActiveRecord;
 
 /**
- * Errorlog Record
+ * CraftBugSnatcherRecord Record
  *
  * ActiveRecord is the base class for classes representing relational data in terms of objects.
  *
@@ -28,21 +28,10 @@ use craft\db\ActiveRecord;
  * http://www.yiiframework.com/doc-2.0/guide-db-active-record.html
  *
  * @author    Robin Kaiser
- * @package   BugSnatcher
+ * @package   CraftBugSnatcher
  * @since     1.0.0
- *
- * @property int            $id
- * @property int            $error_type
- * @property int|null       $err_number
- * @property string|null    $err_string
- * @property string|null    $err_file
- * @property int|null       $err_line
- * @property string|null    $e_class
- * @property int|null       $e_code
- * @property int|null       $e_line
- * @property string|null    $e_message
  */
-class Errorlog extends ActiveRecord
+class CraftBugSnatcherRecord extends ActiveRecord
 {
     // Public Static Methods
     // =========================================================================
@@ -61,6 +50,6 @@ class Errorlog extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%bugsnatcher_errorlog}}';
+        return '{{%craftbugsnatcher_craftbugsnatcherrecord}}';
     }
 }

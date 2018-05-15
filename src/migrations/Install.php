@@ -1,23 +1,23 @@
 <?php
 /**
- * BugSnatcher plugin for Craft CMS 3.x
+ * CraftBugSnatcher plugin for Craft CMS 3.x
  *
- * A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.
+ * This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
  *
  * @link      https://kaiserrobin.eu
  * @copyright Copyright (c) 2018 Robin Kaiser
  */
 
-namespace kaiserwerk\bugsnatcher\migrations;
+namespace kaiserwerk\craftbugsnatcher\migrations;
 
-use kaiserwerk\bugsnatcher\BugSnatcher;
+use kaiserwerk\craftbugsnatcher\CraftBugSnatcher;
 
 use Craft;
 use craft\config\DbConfig;
 use craft\db\Migration;
 
 /**
- * BugSnatcher Install Migration
+ * CraftBugSnatcher Install Migration
  *
  * If your plugin needs to create any custom database tables when it gets installed,
  * create a migrations/ folder within your plugin folder, and save an Install.php file
@@ -27,7 +27,7 @@ use craft\db\Migration;
  * safeUp() and safeDown() methods.
  *
  * @author    Robin Kaiser
- * @package   BugSnatcher
+ * @package   CraftBugSnatcher
  * @since     1.0.0
  */
 class Install extends Migration
@@ -97,12 +97,12 @@ class Install extends Migration
     {
         $tablesCreated = false;
 
-    // bugsnatcher_errorlog table
-        $tableSchema = Craft::$app->db->schema->getTableSchema('{{%bugsnatcher_errorlog}}');
+    // craftbugsnatcher_craftbugsnatcherrecord table
+        $tableSchema = Craft::$app->db->schema->getTableSchema('{{%craftbugsnatcher_craftbugsnatcherrecord}}');
         if ($tableSchema === null) {
             $tablesCreated = true;
             $this->createTable(
-                '{{%bugsnatcher_errorlog}}',
+                '{{%craftbugsnatcher_craftbugsnatcherrecord}}',
                 [
                     'id' => $this->primaryKey(),
                     'dateCreated' => $this->dateTime()->notNull(),
@@ -125,14 +125,14 @@ class Install extends Migration
      */
     protected function createIndexes()
     {
-    // bugsnatcher_errorlog table
+    // craftbugsnatcher_craftbugsnatcherrecord table
         $this->createIndex(
             $this->db->getIndexName(
-                '{{%bugsnatcher_errorlog}}',
+                '{{%craftbugsnatcher_craftbugsnatcherrecord}}',
                 'some_field',
                 true
             ),
-            '{{%bugsnatcher_errorlog}}',
+            '{{%craftbugsnatcher_craftbugsnatcherrecord}}',
             'some_field',
             true
         );
@@ -152,10 +152,10 @@ class Install extends Migration
      */
     protected function addForeignKeys()
     {
-    // bugsnatcher_errorlog table
+    // craftbugsnatcher_craftbugsnatcherrecord table
         $this->addForeignKey(
-            $this->db->getForeignKeyName('{{%bugsnatcher_errorlog}}', 'siteId'),
-            '{{%bugsnatcher_errorlog}}',
+            $this->db->getForeignKeyName('{{%craftbugsnatcher_craftbugsnatcherrecord}}', 'siteId'),
+            '{{%craftbugsnatcher_craftbugsnatcherrecord}}',
             'siteId',
             '{{%sites}}',
             'id',
@@ -180,7 +180,7 @@ class Install extends Migration
      */
     protected function removeTables()
     {
-    // bugsnatcher_errorlog table
-        $this->dropTableIfExists('{{%bugsnatcher_errorlog}}');
+    // craftbugsnatcher_craftbugsnatcherrecord table
+        $this->dropTableIfExists('{{%craftbugsnatcher_craftbugsnatcherrecord}}');
     }
 }

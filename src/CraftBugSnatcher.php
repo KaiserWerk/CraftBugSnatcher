@@ -1,23 +1,22 @@
 <?php
 /**
- * BugSnatcher plugin for Craft CMS 3.x
+ * CraftBugSnatcher plugin for Craft CMS 3.x
  *
- * A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.
+ * This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
  *
  * @link      https://kaiserrobin.eu
  * @copyright Copyright (c) 2018 Robin Kaiser
  */
 
-namespace kaiserwerk\bugsnatcher;
+namespace kaiserwerk\craftbugsnatcher;
 
-use kaiserwerk\bugsnatcher\models\Settings;
+use craft\helpers\UrlHelper;
+use kaiserwerk\craftbugsnatcher\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
-use craft\web\ErrorHandler;
-use craft\events\ExceptionEvent;
 
 use yii\base\Event;
 
@@ -32,22 +31,22 @@ use yii\base\Event;
  * https://craftcms.com/docs/plugins/introduction
  *
  * @author    Robin Kaiser
- * @package   BugSnatcher
+ * @package   CraftBugSnatcher
  * @since     1.0.0
  *
  * @property  Settings $settings
  * @method    Settings getSettings()
  */
-class BugSnatcher extends Plugin
+class CraftBugSnatcher extends Plugin
 {
     // Static Properties
     // =========================================================================
 
     /**
      * Static property that is an instance of this plugin class so that it can be accessed via
-     * BugSnatcher::$plugin
+     * CraftBugSnatcher::$plugin
      *
-     * @var BugSnatcher
+     * @var CraftBugSnatcher
      */
     public static $plugin;
 
@@ -66,7 +65,7 @@ class BugSnatcher extends Plugin
 
     /**
      * Set our $plugin static property to this class so that it can be accessed via
-     * BugSnatcher::$plugin
+     * CraftBugSnatcher::$plugin
      *
      * Called after the plugin class is instantiated; do any one-time initialization
      * here such as hooks and events.
@@ -86,18 +85,12 @@ class BugSnatcher extends Plugin
             Plugins::EVENT_AFTER_INSTALL_PLUGIN,
             function (PluginEvent $event) {
                 if ($event->plugin === $this) {
-                    Craft::$app->response->redirect(UrlHelper::cpUrl('settings/plugins/error-handler'))->send();
+                    // We were just installed
+                    Craft::$app->response->redirect(UrlHelper::cpUrl('settings/plugins/craftbugsnatcher'))->send();
                 }
             }
         );
-    
-        Event::on(
-            ErrorHandler::className(),
-            ErrorHandler::EVENT_BEFORE_HANDLE_EXCEPTION,
-            function (ExceptionEvent $event) {
-                #$this->errorHandlerService->handleException($event->exception);
-            }
-        );
+        
 
 /**
  * Logging in Craft involves using one of the following methods:
@@ -119,15 +112,13 @@ class BugSnatcher extends Plugin
  */
         Craft::info(
             Craft::t(
-                'bug-snatcher',
+                'craft-bug-snatcher',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
             __METHOD__
         );
     }
-    
-    
 
     // Protected Methods
     // =========================================================================
@@ -151,7 +142,7 @@ class BugSnatcher extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'bug-snatcher/settings',
+            'craft-bug-snatcher/settings',
             [
                 'settings' => $this->getSettings()
             ]

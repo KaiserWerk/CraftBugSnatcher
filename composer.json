@@ -1,6 +1,6 @@
 {
-    "name": "kaiserwerk/bug-snatcher",
-    "description": "A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.",
+    "name": "kaiserwerk/craftbugsnatcher",
+    "description": "This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.",
     "type": "craft-plugin",
     "version": "1.0.0",
     "keywords": [
@@ -8,11 +8,11 @@
         "cms",
         "craftcms",
         "craft-plugin",
-        "bugsnatcher"
+        "craftbugsnatcher"
     ],
     "support": {
-        "docs": "https://github.com/KaiserWerk/bug-snatcher/blob/master/README.md",
-        "issues": "https://github.com/KaiserWerk/bug-snatcher/issues"
+        "docs": "https://github.com/KaiserWerk/CraftBugSnatcher/blob/master/README.md",
+        "issues": "https://github.com/KaiserWerk/CraftBugSnatcher/issues"
     },
     "license": "MIT",
     "authors": [
@@ -26,15 +26,15 @@
     },
     "autoload": {
         "psr-4": {
-          "kaiserwerk\\bugsnatcher\\": "src/"
+          "kaiserwerk\\craftbugsnatcher\\": "src/"
         }
     },
     "extra": {
-        "name": "BugSnatcher",
-        "handle": "bug-snatcher",
+        "name": "CraftBugSnatcher",
+        "handle": "craftbugsnatcher",
         "hasCpSettings": true,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/KaiserWerk/bug-snatcher/master/CHANGELOG.md",
-        "class": "kaiserwerk\\bugsnatcher\\BugSnatcher"
+        "changelogUrl": "https://raw.githubusercontent.com/KaiserWerk/CraftBugSnatcher/master/CHANGELOG.md",
+        "class": "kaiserwerk\\craftbugsnatcher\\CraftBugSnatcher"
     }
 }

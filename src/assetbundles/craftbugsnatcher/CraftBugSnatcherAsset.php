@@ -1,21 +1,21 @@
 <?php
 /**
- * BugSnatcher plugin for Craft CMS 3.x
+ * CraftBugSnatcher plugin for Craft CMS 3.x
  *
- * A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.
+ * This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
  *
  * @link      https://kaiserrobin.eu
  * @copyright Copyright (c) 2018 Robin Kaiser
  */
 
-namespace kaiserwerk\bugsnatcher\assetbundles\BugSnatcher;
+namespace kaiserwerk\craftbugsnatcher\assetbundles\CraftBugSnatcher;
 
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * BugSnatcherAsset AssetBundle
+ * CraftBugSnatcherAsset AssetBundle
  *
  * AssetBundle represents a collection of asset files, such as CSS, JS, images.
  *
@@ -29,10 +29,10 @@ use craft\web\assets\cp\CpAsset;
  * http://www.yiiframework.com/doc-2.0/guide-structure-assets.html
  *
  * @author    Robin Kaiser
- * @package   BugSnatcher
+ * @package   CraftBugSnatcher
  * @since     1.0.0
  */
-class BugSnatcherAsset extends AssetBundle
+class CraftBugSnatcherAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -43,7 +43,7 @@ class BugSnatcherAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@kaiserwerk/bugsnatcher/assetbundles/bugsnatcher/dist";
+        $this->sourcePath = "@kaiserwerk/craftbugsnatcher/assetbundles/craftbugsnatcher/dist";
 
         // define the dependencies
         $this->depends = [
@@ -53,11 +53,11 @@ class BugSnatcherAsset extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/BugSnatcher.js',
+            'js/CraftBugSnatcher.js',
         ];
 
         $this->css = [
-            'css/BugSnatcher.css',
+            'css/CraftBugSnatcher.css',
         ];
 
         parent::init();

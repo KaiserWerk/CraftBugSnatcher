@@ -1,21 +1,21 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
 {#
 /**
- * BugSnatcher plugin for Craft CMS 3.x
+ * CraftBugSnatcher plugin for Craft CMS 3.x
  *
- * BugSnatcher Settings.twig
+ * CraftBugSnatcher Settings.twig
  *
  * @author    Robin Kaiser
  * @copyright Copyright (c) 2018 Robin Kaiser
  * @link      https://kaiserrobin.eu
- * @package   BugSnatcher
+ * @package   CraftBugSnatcher
  * @since     1.0.0
  */
 #}
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("kaiserwerk\\bugsnatcher\\assetbundles\\bugsnatcher\\BugSnatcherAsset") %}
+{% do view.registerAssetBundle("kaiserwerk\\craftbugsnatcher\\assetbundles\\craftbugsnatcher\\CraftBugSnatcherAsset") %}
 
 <p><h1>E-Mail Notifications</h1></p>
 {{ forms.lightswitchField({
