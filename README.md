@@ -1,8 +1,7 @@
-# CraftBugSnatcher plugin for Craft CMS 3.x
+# ![Screenshot](src/icon.svg) CraftBugSnatcher plugin for Craft CMS 3.x
 
 This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
 
-![Screenshot](resources/img/plugin-logo.png)
 
 ## Requirements
 
@@ -39,5 +38,7 @@ To install the plugin, follow these instructions.
 Some things to do, and ideas for potential features:
 
 * Release it
+* Import from file/export to file of configuration for easier replication
+* adding option for adding custom http calls
 
 Brought to you by [Robin Kaiser](https://kaiserrobin.eu)
