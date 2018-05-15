@@ -1,0 +1,40 @@
+{
+    "name": "kaiserwerk/bug-snatcher",
+    "description": "A handy plugin for catching and recording errors and exceptions. Also sends out notifications via Mail, Slack, Stride and SMS.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "bugsnatcher"
+    ],
+    "support": {
+        "docs": "https://github.com/KaiserWerk/bug-snatcher/blob/master/README.md",
+        "issues": "https://github.com/KaiserWerk/bug-snatcher/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robin Kaiser",
+            "homepage": "https://kaiserrobin.eu"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "kaiserwerk\\bugsnatcher\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "BugSnatcher",
+        "handle": "bug-snatcher",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/KaiserWerk/bug-snatcher/master/CHANGELOG.md",
+        "class": "kaiserwerk\\bugsnatcher\\BugSnatcher"
+    }
+}

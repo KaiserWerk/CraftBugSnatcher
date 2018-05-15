@@ -1,0 +1,118 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * BugSnatcher plugin for Craft CMS 3.x
+ *
+ * BugSnatcher Settings.twig
+ *
+ * @author    Robin Kaiser
+ * @copyright Copyright (c) 2018 Robin Kaiser
+ * @link      https://kaiserrobin.eu
+ * @package   BugSnatcher
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("kaiserwerk\\bugsnatcher\\assetbundles\\bugsnatcher\\BugSnatcherAsset") %}
+
+<p><h1>E-Mail Notifications</h1></p>
+{{ forms.lightswitchField({
+    first: true,
+    label: "Enable Email Notifications",
+    name: 'emailActive',
+    id: 'emailActive',
+    on: settings['emailActive']
+}) }}
+
+{{ forms.textField({
+    label: "Email",
+    instructions: 'Please separate multiple addresses with a comma.',
+    name: 'email',
+    id: 'email',
+    placeholder: 'Separate multiple addresses with a comma.',
+    value: settings['email']
+}) }}
+
+<br><p><h1>Slack Notifications</h1></p>
+{{ forms.lightswitchField({
+    label: "Enable Slack Notifications",
+    name: 'slackActive',
+    id: 'slackActive',
+    on: settings['slackActive']
+}) }}
+
+{{ forms.textField({
+    label: "Slack API Key",
+    name: 'slackApiKey',
+    id: 'slackApiKey',
+    placeholder: 'Slack API Key',
+    value: settings['slackApiKey']
+}) }}
+
+{{ forms.textField({
+    label: "Slack Channel",
+    name: 'slackChannel',
+    id: 'slackChannel',
+    placeholder: 'Slack Channel',
+    value: settings['slackChannel']
+}) }}
+
+<br><p><h1>Stride Notifications</h1></p>
+{{ forms.lightswitchField({
+    label: "Enable Stride Notifications",
+    name: 'strideActive',
+    id: 'strideActive',
+    on: settings['strideActive']
+}) }}
+
+{{ forms.textField({
+    label: "Stride Bearer Token",
+    name: 'strideBearerToken',
+    id: 'strideBearerToken',
+    placeholder: 'Stride Bearer Token',
+    value: settings['strideBearerToken']
+}) }}
+
+{{ forms.textField({
+    label: "Stride Cloud ID",
+    name: 'strideCloudID',
+    id: 'strideCloudID',
+    placeholder: 'Stride Cloud ID',
+    value: settings['strideCloudID']
+}) }}
+
+{{ forms.textField({
+    label: "Stride Conversation ID",
+    name: 'strideConversationID',
+    id: 'strideConversationID',
+    placeholder: 'Stride Conversation ID',
+    value: settings['strideConversationID']
+}) }}
+
+<br><p><h1>SMS Notifications</h1></p>
+{{ forms.lightswitchField({
+    label: "Enable SMS Notifications",
+    name: 'smsActive',
+    id: 'smsActive',
+    on: settings['smsActive']
+}) }}
+
+{{ forms.textField({
+    label: "Clockwork API Key",
+    instructions: 'Find your Clockwork dashboard here: https://app3.clockworksms.com/Account/Login?ReturnUrl=%2FKeys',
+    name: 'smsApiKey',
+    id: 'smsApiKey',
+    placeholder: 'Clockwork API Key',
+    value: settings['smsApiKey']
+}) }}
+
+{{ forms.textField({
+    label: "Mobile Phone number",
+    instructions: 'Please supply numbers in format 49123456789, wherein 49 is the country code.',
+    name: 'smsNumber',
+    id: 'smsNumber',
+    placeholder: 'Mobile Phone number',
+    value: settings['smsNumber']
+}) }}
