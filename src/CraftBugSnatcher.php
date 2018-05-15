@@ -112,7 +112,7 @@ class CraftBugSnatcher extends Plugin
  */
         Craft::info(
             Craft::t(
-                'craft-bug-snatcher',
+                'craftbugsnatcher',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
@@ -142,7 +142,7 @@ class CraftBugSnatcher extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'craft-bug-snatcher/settings',
+            'craftbugsnatcher/settings',
             [
                 'settings' => $this->getSettings()
             ]
