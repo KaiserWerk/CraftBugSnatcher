@@ -2,6 +2,9 @@
 
 This handy plugin will catch occurring errors and exceptions, log them, and send out (optional) notifications via Email, Slack, Stride and SMS.
 
+## Not yet ready
+
+It is not yet complete. Do not use yet!
 
 ## Requirements
 
@@ -40,5 +43,6 @@ Some things to do, and ideas for potential features:
 * Release it
 * Import from file/export to file of configuration for easier replication
 * adding option for adding custom http calls
+* adding option for discord notification
 
 Brought to you by [Robin Kaiser](https://kaiserrobin.eu)
